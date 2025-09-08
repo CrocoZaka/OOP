@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.ekovalenko4.sort","c":"Sort","l":"Sort()","u":"%3Cinit%3E()"},{"p":"ru.nsu.ekovalenko4.sort","c":"Sort","l":"sort(int[])"}];updateSearchResults();
+memberSearchIndex = [{"p":"ru.nsu.ekovalenko4.sort","c":"Sort","l":"Sort()","u":"%3Cinit%3E()"}];updateSearchResults();
