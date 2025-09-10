@@ -50,7 +50,7 @@ public class Sort {
     public static void main(String[] args) {
         Random random = new Random();
         int[] sizes = {10, 50, 100, 500, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 75000, 100000,
-                250000, 500000, 750000, 1000000};
+            250000, 500000, 750000, 1000000};
 
         for (int size : sizes) {
             int[] array = new int[size];
@@ -66,8 +66,7 @@ public class Sort {
             Arrays.sort(copy);
             if (Arrays.equals(array, copy)) {
                 System.out.println("Array length: " + size + " - Sorting time: " + time + " ms");
-            }
-            else {
+            } else {
                 System.out.println("Incorrect heapsort result");
             }
         }
