@@ -1,8 +1,8 @@
 package ru.nsu.ekovalenko4.sort;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import org.junit.jupiter.api.Test;
 
 class SortTest {
 
@@ -66,6 +66,11 @@ class SortTest {
         }
         Sort.heapsort(array);
         assertArrayEquals(expected, array);
+    }
+
+    @Test
+    void run_main() {
+        Sort.main(null);
     }
 
 }

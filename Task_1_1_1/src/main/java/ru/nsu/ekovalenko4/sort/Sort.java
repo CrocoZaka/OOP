@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Heapsort method.
+ * Heapsort method class.
  */
 public class Sort {
 
@@ -44,9 +44,13 @@ public class Sort {
         arr[j] = tmp;
     }
 
+    /**
+     * Main function used for time complexity proof.
+     */
     public static void main(String[] args) {
         Random random = new Random();
-        int[] sizes = {10, 50, 100, 500, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 75000, 100000, 250000, 500000, 750000, 1000000};
+        int[] sizes = {10, 50, 100, 500, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 75000, 100000,
+                250000, 500000, 750000, 1000000};
 
         for (int size : sizes) {
             int[] array = new int[size];
@@ -60,7 +64,7 @@ public class Sort {
             double time = (System.nanoTime() - start) / 1_000_000.0; // milliseconds
 
             Arrays.sort(copy);
-            if(Arrays.equals(array, copy)) {
+            if (Arrays.equals(array, copy)) {
                 System.out.println("Array length: " + size + " - Sorting time: " + time + " ms");
             }
             else {
