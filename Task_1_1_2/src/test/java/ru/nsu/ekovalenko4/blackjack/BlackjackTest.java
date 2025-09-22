@@ -2,17 +2,22 @@ package ru.nsu.ekovalenko4.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for the Blackjack console game.
+ */
 public class BlackjackTest {
 
     private ByteArrayOutputStream outContent;
 
+    /**
+     * Sets up a stream to capture console output before each test.
+     */
     @BeforeEach
     void setUpStreams() {
         outContent = new ByteArrayOutputStream();
