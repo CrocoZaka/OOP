@@ -1,8 +1,8 @@
-package ru.nsu.ekovalenko4.task_1_1_2;
+package ru.nsu.ekovalenko4.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 

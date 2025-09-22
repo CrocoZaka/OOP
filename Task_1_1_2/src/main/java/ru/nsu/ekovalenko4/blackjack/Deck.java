@@ -1,4 +1,4 @@
-package ru.nsu.ekovalenko4.task_1_1_2;
+package ru.nsu.ekovalenko4.blackjack;
 
 import java.util.Random;
 

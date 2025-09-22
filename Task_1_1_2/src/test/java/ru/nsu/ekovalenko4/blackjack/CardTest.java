@@ -1,9 +1,9 @@
-package ru.nsu.ekovalenko4.task_1_1_2;
+package ru.nsu.ekovalenko4.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ class CardTest {
 
     @Test
     public void testDisplay() {
-        Card card = new Card(Card.Suit.HEARTS,Card.Rank.KING);
+        Card card = new Card(Card.Suit.HEARTS, Card.Rank.KING);
         assertEquals("Король Червы (10)", card.toString());
     }
 
