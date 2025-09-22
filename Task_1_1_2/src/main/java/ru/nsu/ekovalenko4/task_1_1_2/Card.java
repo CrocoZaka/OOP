@@ -1,12 +1,14 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 /**
- * Represents a single playing card.
- * Contains a suit and a rank.
- * Used by players and the dealer to calculate scores in the Blackjack game.
+ * Represents a single playing card with a suit and a rank.
+ * Used by players and the dealer to calculate scores in Blackjack.
  */
 public class Card {
 
+    /**
+     * Enumeration of card suits.
+     */
     public enum Suit {
         SPADES("Пики"),
         HEARTS("Червы"),
@@ -24,6 +26,9 @@ public class Card {
         }
     }
 
+    /**
+     * Enumeration of card ranks with associated values.
+     */
     public enum Rank {
         TWO("Двойка", 2),
         THREE("Тройка", 3),
@@ -59,6 +64,9 @@ public class Card {
     private final Suit suit;
     private final Rank rank;
 
+    /**
+     * Creates a new card with a given suit and rank.
+     */
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
@@ -67,17 +75,19 @@ public class Card {
     public String getSuit() {
         return suit.toString();
     }
+
     public String getRank() {
         return rank.toString();
     }
+
     public int getValue() {
         return rank.getValue();
     }
 
-
     public boolean isAce() {
         return rank == Rank.ACE;
     }
+
     public String toString() {
         return rank + " " + suit + " (" + rank.getValue() + ")";
     }

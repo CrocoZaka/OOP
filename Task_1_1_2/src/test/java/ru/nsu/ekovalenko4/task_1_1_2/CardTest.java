@@ -1,17 +1,16 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
-
-import org.junit.jupiter.api.Test;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import org.junit.jupiter.api.Test;
 
 class CardTest {
     @Test
     public void testCreateCard() {
-        Card card = new Card(Card.Suit.SPADES,Card.Rank.QUEEN);
+        Card card = new Card(Card.Suit.SPADES, Card.Rank.QUEEN);
         assertNotNull(card);
         assertEquals(Card.Suit.SPADES.toString(), card.getSuit());
         assertEquals(Card.Rank.QUEEN.getValue(), card.getValue());
@@ -26,9 +25,9 @@ class CardTest {
 
     @Test
     public void testIsAce() {
-        Card card = new Card(Card.Suit.DIAMONDS,Card.Rank.ACE);
+        Card card = new Card(Card.Suit.DIAMONDS, Card.Rank.ACE);
         assertTrue(card.isAce());
-        Card card2 = new Card(Card.Suit.CLUBS,Card.Rank.JACK);
+        Card card2 = new Card(Card.Suit.CLUBS, Card.Rank.JACK);
         assertFalse(card2.isAce());
     }
 }

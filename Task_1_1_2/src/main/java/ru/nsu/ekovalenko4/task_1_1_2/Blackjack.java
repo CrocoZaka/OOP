@@ -1,4 +1,4 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 import java.util.Scanner;
 
@@ -16,18 +16,27 @@ public class Blackjack {
     private int round = 1;
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Creates a new Blackjack game with a given number of decks.
+     */
     public Blackjack(int decksCount) {
         deck = new Deck(decksCount);
         player = new Player();
         dealer = new Player();
     }
 
+    /**
+     * Starts the game loop.
+     * Repeats rounds until the player chooses to stop.
+     */
     public void start() {
         while (true) {
             playRound();
             System.out.println("Хотите сыграть еще раунд? (1 - да, 0 - нет)");
             int choice = scanner.nextInt();
-            if (choice == 0) break;
+            if (choice == 0) {
+                break;
+            }
             round++;
             deck.shuffle();
         }
@@ -117,6 +126,9 @@ public class Blackjack {
         showScore();
     }
 
+    /**
+     * Displays the current score of the match.
+     */
     private void showScore() {
         System.out.print("Счет " + playerScore + ":" + dealerScore);
         if (playerScore > dealerScore) {
@@ -128,6 +140,9 @@ public class Blackjack {
         System.out.println("\n");
     }
 
+    /**
+     * Entry point of the application.
+     */
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в Блэкджек! Введите количество колод...");
         int n = Integer.parseInt(System.console().readLine());

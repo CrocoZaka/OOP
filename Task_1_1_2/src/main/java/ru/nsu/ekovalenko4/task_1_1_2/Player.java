@@ -1,4 +1,4 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 /**
  * Represents a player in Blackjack (including the dealer).
@@ -50,10 +50,12 @@ class Player {
             } else {
                 sb.append(hand[i]);
             }
-            if (i < handSize - 1) sb.append(", ");
+            if (i < handSize - 1) {
+                sb.append(", ");
+            }
         }
         sb.append("]");
-        if(!hideFirst) {
+        if (!hideFirst) {
             sb.append(" => ").append(getScore());
         }
         return sb.toString();

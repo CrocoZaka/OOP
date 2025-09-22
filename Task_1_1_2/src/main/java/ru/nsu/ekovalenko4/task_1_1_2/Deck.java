@@ -1,11 +1,10 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 import java.util.Random;
 
 /**
- * Represents a deck of cards.
- * Supports initialization with one or multiple decks,
- * shuffling, and dealing cards one by one.
+ * Represents a deck of cards used in Blackjack.
+ * Can consist of one or more 52-card decks combined.
  */
 class Deck {
     private final Card[] cards;

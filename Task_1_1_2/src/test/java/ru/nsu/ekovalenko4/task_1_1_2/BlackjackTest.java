@@ -1,8 +1,8 @@
-package ru.nsu.ekovalenko4.Task_1_1_2;
-
-import org.junit.jupiter.api.Test;
+package ru.nsu.ekovalenko4.task_1_1_2;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
 
 class BlackjackTest {
 
