@@ -56,7 +56,7 @@ public class BlackjackTest {
         assertTrue(output.contains("Вы открыли карту"));
         assertTrue(output.contains("Ход дилера")
                         || output.contains("Вы выиграли раунд")
-                        || output.contains("Дилер выиграл раунд"));
+                        || output.contains("Вы проиграли раунд"));
     }
 
     @Test
