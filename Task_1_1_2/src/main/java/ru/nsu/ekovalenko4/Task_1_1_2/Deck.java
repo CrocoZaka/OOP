@@ -1,0 +1,46 @@
+package ru.nsu.ekovalenko4.Task_1_1_2;
+
+import java.util.Random;
+
+/**
+ * Represents a deck of cards.
+ * Supports initialization with one or multiple decks,
+ * shuffling, and dealing cards one by one.
+ */
+class Deck {
+    private final Card[] cards;
+    private int top;
+    private final Random rand = new Random();
+
+    public Deck(int decksCount) {
+        cards = new Card[52 * decksCount];
+        int i = 0;
+        for (int d = 0; d < decksCount; d++) {
+            for (Card.Suit suit : Card.Suit.values()) {
+                for (Card.Rank rank : Card.Rank.values()) {
+                    cards[i++] = new Card(suit, rank);
+                }
+            }
+        }
+        top = cards.length - 1;
+        shuffle();
+    }
+
+    public void shuffle() {
+        for (int i = 0; i < cards.length; i++) {
+            int j = rand.nextInt(cards.length);
+            Card tmp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = tmp;
+        }
+        top = cards.length - 1;
+    }
+
+    public Card dealCard() {
+        if (top < 0) {
+            throw new IllegalStateException("Колода пуста!");
+        }
+        return cards[top--];
+    }
+}
+
