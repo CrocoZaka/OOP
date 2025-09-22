@@ -33,6 +33,9 @@ public class Blackjack {
         while (true) {
             playRound();
             System.out.println("Хотите сыграть еще раунд? (1 - да, 0 - нет)");
+            if (!scanner.hasNextInt()) {
+                break;
+            }
             int choice = scanner.nextInt();
             if (choice == 0) {
                 break;
