@@ -38,6 +38,10 @@ public class Deck {
         top = cards.length - 1;
     }
 
+    /**
+     * Returns next card in the deck.
+     * If deck is empty throws an exception.
+     */
     public Card dealCard() {
         if (top < 0) {
             throw new IllegalStateException("Колода пуста!");
