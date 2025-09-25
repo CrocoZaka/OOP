@@ -1,12 +1,14 @@
 package ru.nsu.ekovalenko4.blackjack;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 /**
  * Represents a deck of cards used in Blackjack.
  * Can consist of one or more 52-card decks combined.
  */
-class Deck {
+public class Deck {
     private final Card[] cards;
     private int top;
     private final Random rand = new Random();
@@ -26,12 +28,7 @@ class Deck {
     }
 
     public void shuffle() {
-        for (int i = 0; i < cards.length; i++) {
-            int j = rand.nextInt(cards.length);
-            Card tmp = cards[i];
-            cards[i] = cards[j];
-            cards[j] = tmp;
-        }
+        Collections.shuffle(Arrays.asList(cards));
         top = cards.length - 1;
     }
 
@@ -43,3 +40,20 @@ class Deck {
     }
 }
 
+/**
+ * Represents a fixed custom deck of cards for testing purposes.
+ */
+class FixedDeck extends Deck {
+    private final Card[] fixedCards;
+    private int top = 0;
+
+    public FixedDeck(Card[] cards) {
+        super(1);
+        this.fixedCards = cards;
+    }
+
+    @Override
+    public Card dealCard() {
+        return fixedCards[top++];
+    }
+}

@@ -6,7 +6,8 @@ package ru.nsu.ekovalenko4.blackjack;
  * and checks for blackjack or bust.
  * Also provides methods to display the hand as a string.
  */
-class Player {
+public class Player {
+    private static final int BLACKJACK_THRESHOLD = 21;
     private final Card[] hand = new Card[12];
     private int handSize = 0;
 
@@ -27,18 +28,18 @@ class Player {
                 aces++;
             }
         }
-        if (total > 21) {
+        if (total > BLACKJACK_THRESHOLD) {
             total -= aces * 10;
         }
         return total;
     }
 
     public boolean isBlackjack() {
-        return handSize == 2 && getScore() == 21;
+        return handSize == 2 && getScore() == BLACKJACK_THRESHOLD;
     }
 
     public boolean isBust() {
-        return getScore() > 21;
+        return getScore() > BLACKJACK_THRESHOLD;
     }
 
     public String showHand(boolean hideFirst) {

@@ -24,6 +24,14 @@ public class Blackjack {
         player = new Player();
         dealer = new Player();
     }
+    /**
+     * Creates a Blackjack game with custom deck for testing purposes.
+     */
+    public Blackjack(Deck deck) {
+        this.deck = deck;
+        this.player = new Player();
+        this.dealer = new Player();
+    }
 
     /**
      * Starts the game loop.
@@ -148,7 +156,8 @@ public class Blackjack {
      */
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в Блэкджек! Введите количество колод...");
-        int n = Integer.parseInt(System.console().readLine());
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
         Blackjack game = new Blackjack(n);
         game.start();
     }
