@@ -13,6 +13,9 @@ public class Deck {
     private int top;
     private final Random rand = new Random();
 
+    /**
+     * 52-card deck(s) class constructor.
+     */
     public Deck(int decksCount) {
         cards = new Card[52 * decksCount];
         int i = 0;
@@ -27,6 +30,9 @@ public class Deck {
         shuffle();
     }
 
+    /**
+     * Deck shuffling method using Collections.shuffle.
+     */
     public void shuffle() {
         Collections.shuffle(Arrays.asList(cards));
         top = cards.length - 1;
@@ -37,23 +43,5 @@ public class Deck {
             throw new IllegalStateException("Колода пуста!");
         }
         return cards[top--];
-    }
-}
-
-/**
- * Represents a fixed custom deck of cards for testing purposes.
- */
-class FixedDeck extends Deck {
-    private final Card[] fixedCards;
-    private int top = 0;
-
-    public FixedDeck(Card[] cards) {
-        super(1);
-        this.fixedCards = cards;
-    }
-
-    @Override
-    public Card dealCard() {
-        return fixedCards[top++];
     }
 }

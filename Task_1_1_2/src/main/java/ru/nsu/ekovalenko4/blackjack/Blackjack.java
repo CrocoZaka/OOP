@@ -24,6 +24,7 @@ public class Blackjack {
         player = new Player();
         dealer = new Player();
     }
+    
     /**
      * Creates a Blackjack game with custom deck for testing purposes.
      */

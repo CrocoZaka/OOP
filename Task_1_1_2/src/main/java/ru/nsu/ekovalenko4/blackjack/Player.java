@@ -19,6 +19,10 @@ public class Player {
         return hand[index];
     }
 
+    /**
+     * Counts total value of all cards in player hand.
+     * Accounts for aces changing value depending on total score.
+     */
     public int getScore() {
         int total = 0;
         int aces = 0;
@@ -42,6 +46,9 @@ public class Player {
         return getScore() > BLACKJACK_THRESHOLD;
     }
 
+    /**
+     * Prints cards in player hand, hiding one if stated.
+     */
     public String showHand(boolean hideFirst) {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
