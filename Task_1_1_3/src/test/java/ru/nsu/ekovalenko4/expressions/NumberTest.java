@@ -22,7 +22,7 @@ class NumberTest {
     void testDerivative() {
         Expression num = new Number(99);
         Expression der = num.derivative("x");
-        assertEquals("0", der.toString());
+        assertEquals("0.0", der.toString());
         assertEquals(0.0, der.eval(""));
     }
 
