@@ -29,12 +29,13 @@ class Variable extends Expression {
         String[] parts = values.split(";");
         for (String s : parts) {
             String part = s.trim();
-            if (part.isEmpty()) continue;
-            String[] eq = part.split("=");
-            String varName = eq[0].trim();
-            String varValue = eq[1].trim();
-            if (varName.equals(name)) {
-                return Double.parseDouble(varValue);
+            if (!part.isEmpty()) {
+                String[] eq = part.split("=");
+                String varName = eq[0].trim();
+                String varValue = eq[1].trim();
+                if (varName.equals(name)) {
+                    return Double.parseDouble(varValue);
+                }
             }
         }
         throw new IllegalArgumentException("Variable " + name + " is not defined");

@@ -6,5 +6,6 @@ package ru.nsu.ekovalenko4.expressions;
  */
 abstract class Expression {
     public abstract Expression derivative(String var);
+
     public abstract double eval(String values);
 }

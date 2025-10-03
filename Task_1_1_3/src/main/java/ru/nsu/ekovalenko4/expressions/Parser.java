@@ -1,5 +1,9 @@
 package ru.nsu.ekovalenko4.expressions;
 
+/**
+ * A simple parser for mathematical expressions.
+ * All non-trivial expressions must be wrapped in parentheses.
+ */
 public class Parser {
     static Expression parse(String s) {
 
@@ -32,19 +36,24 @@ public class Parser {
             int depth = 0;
             for (int i = 0; i < inside.length(); i++) {
                 char c = inside.charAt(i);
-                if (c == '(') depth++;
-                else if (c == ')') depth--;
-                else if ((c == '+' || c == '-' || c == '*' || c == '/') && depth == 0) {
+                if (c == '(') {
+                    depth++;
+                }
+                if (c == ')') {
+                    depth--;
+                }
+                if (depth == 0 && (c == '+' || c == '-' || c == '*' || c == '/')) {
                     String left = inside.substring(0, i);
                     String right = inside.substring(i + 1);
                     Expression l = parse(left);
                     Expression r = parse(right);
-                    switch (c) {
-                        case '+': return new Add(l, r);
-                        case '-': return new Sub(l, r);
-                        case '*': return new Mul(l, r);
-                        case '/': return new Div(l, r);
-                    }
+                    return switch (c) {
+                        case '+' -> new Add(l, r);
+                        case '-' -> new Sub(l, r);
+                        case '*' -> new Mul(l, r);
+                        case '/' -> new Div(l, r);
+                        default -> throw new IllegalArgumentException("Invalid operator: " + c);
+                    };
                 }
             }
         }
