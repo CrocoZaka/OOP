@@ -1,5 +1,8 @@
 package ru.nsu.ekovalenko4.expressions;
 
+/**
+ * Represents a variable in an expression.
+ */
 class Variable extends Expression {
     private final String name;
 
@@ -8,7 +11,7 @@ class Variable extends Expression {
     }
 
     @Override
-    public String print() {
+    public String toString() {
         return name;
     }
 
@@ -22,15 +25,16 @@ class Variable extends Expression {
     }
 
     @Override
-    public int eval(String values) {
+    public double eval(String values) {
         String[] parts = values.split(";");
-        for (String part : parts) {
+        for (String s : parts) {
+            String part = s.trim();
             if (part.isEmpty()) continue;
             String[] eq = part.split("=");
             String varName = eq[0].trim();
             String varValue = eq[1].trim();
             if (varName.equals(name)) {
-                return Integer.parseInt(varValue);
+                return Double.parseDouble(varValue);
             }
         }
         throw new IllegalArgumentException("Variable " + name + " is not defined");

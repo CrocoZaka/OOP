@@ -12,7 +12,7 @@ public class Parser {
             }
         }
         if (isNumber) {
-            return new Number(Integer.parseInt(s));
+            return new Number(Double.parseDouble(s));
         }
 
         boolean isVariable = true;
@@ -27,7 +27,7 @@ public class Parser {
             return new Variable(s);
         }
 
-        if (s.charAt(0) == '(' && s.charAt(s.length() - 1) == ')') {
+        if (s.charAt(0) == '(') {
             String inside = s.substring(1, s.length() - 1);
             int depth = 0;
             for (int i = 0; i < inside.length(); i++) {
@@ -49,6 +49,6 @@ public class Parser {
             }
         }
 
-        throw new RuntimeException("Не удалось разобрать выражение: " + s);
+        throw new RuntimeException("Invalid expression, cannot parse: " + s);
     }
 }

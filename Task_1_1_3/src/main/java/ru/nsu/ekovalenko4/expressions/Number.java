@@ -1,14 +1,17 @@
 package ru.nsu.ekovalenko4.expressions;
 
+/**
+ * Represents a constant integer number in an expression.
+ */
 class Number extends Expression {
-    private final int value;
+    private final double value;
 
-    public Number(int value) {
+    public Number(double value) {
         this.value = value;
     }
 
     @Override
-    public String print() {
+    public String toString() {
         return String.valueOf(value);
     }
 
@@ -18,7 +21,7 @@ class Number extends Expression {
     }
 
     @Override
-    public int eval(String values) {
+    public double eval(String values) {
         return value;
     }
 }

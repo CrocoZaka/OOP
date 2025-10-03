@@ -6,8 +6,8 @@ class Add extends BinaryOperation {
     }
 
     @Override
-    public String print() {
-        return "(" + left.print() + "+" + right.print() + ")";
+    public String toString() {
+        return "(" + left.toString() + "+" + right.toString() + ")";
     }
 
     @Override
@@ -16,7 +16,7 @@ class Add extends BinaryOperation {
     }
 
     @Override
-    public int eval(String values) {
+    public double eval(String values) {
         return left.eval(values) + right.eval(values);
     }
 }
