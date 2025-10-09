@@ -1,5 +1,7 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import java.util.Map;
+
 /**
  * Represents a constant integer number in an expression.
  */
@@ -21,7 +23,7 @@ class Number extends Expression {
     }
 
     @Override
-    public double eval(String values) {
+    public double eval(Map<String, Double> values) {
         return value;
     }
 }

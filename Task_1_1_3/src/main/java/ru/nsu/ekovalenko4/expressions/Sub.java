@@ -1,5 +1,7 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import java.util.Map;
+
 class Sub extends BinaryOperation {
     public Sub(Expression left, Expression right) {
         super(left, right);
@@ -16,7 +18,7 @@ class Sub extends BinaryOperation {
     }
 
     @Override
-    public double eval(String values) {
-        return left.eval(values) - right.eval(values);
+    public double eval(Map<String, Double> vars) {
+        return left.eval(vars) - right.eval(vars);
     }
 }

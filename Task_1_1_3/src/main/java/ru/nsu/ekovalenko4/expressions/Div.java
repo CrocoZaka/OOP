@@ -1,5 +1,7 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import java.util.Map;
+
 class Div extends BinaryOperation {
     public Div(Expression left, Expression right) {
         super(left, right);
@@ -19,7 +21,11 @@ class Div extends BinaryOperation {
     }
 
     @Override
-    public double eval(String values) {
-        return left.eval(values) / right.eval(values);
+    public double eval(Map<String, Double> vars) {
+        double denominator = right.eval(vars);
+        if (denominator == 0) {
+            throw new ExpressionException("Division by zero");
+        }
+        return left.eval(vars) / denominator;
     }
 }

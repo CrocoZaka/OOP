@@ -1,5 +1,7 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import java.util.Map;
+
 /**
  * Represents a variable in an expression.
  */
@@ -25,19 +27,10 @@ class Variable extends Expression {
     }
 
     @Override
-    public double eval(String values) {
-        String[] parts = values.split(";");
-        for (String s : parts) {
-            String part = s.trim();
-            if (!part.isEmpty()) {
-                String[] eq = part.split("=");
-                String varName = eq[0].trim();
-                String varValue = eq[1].trim();
-                if (varName.equals(name)) {
-                    return Double.parseDouble(varValue);
-                }
-            }
+    public double eval(Map<String, Double> vars) {
+        if (!vars.containsKey(name)) {
+            throw new ExpressionException("Variable " + name + " is not defined properly");
         }
-        throw new IllegalArgumentException("Variable " + name + " is not defined");
+        return vars.get(name);
     }
 }
