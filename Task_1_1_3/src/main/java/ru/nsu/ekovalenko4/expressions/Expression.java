@@ -13,7 +13,7 @@ abstract class Expression {
     public double eval(String s) {
         Map<String, Double> vars = parseValues(s);
         return eval(vars);
-    };
+    }
 
     protected abstract double eval(Map<String, Double> vars);
 
@@ -26,7 +26,7 @@ abstract class Expression {
                 String[] eq = part.split("=");
                 if (eq.length == 2) {
                     vars.put(eq[0].trim(), Double.parseDouble(eq[1].trim()));
-                };
+                }
             }
         }
         return vars;
