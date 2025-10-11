@@ -1,5 +1,6 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -56,8 +57,10 @@ class ParserTest {
 
     @Test
     void testParseInvalidExpression() {
-        assertThrows(CalculatorException.class, () -> Parser.parse("3+2"));
-        assertThrows(CalculatorException.class, () -> Parser.parse("(x*)"));
-        assertThrows(CalculatorException.class, () -> Parser.parse("(3^2)"));
+        assertAll(
+            () -> assertThrows(CalculatorException.class, () -> Parser.parse("3+2")),
+            () -> assertThrows(CalculatorException.class, () -> Parser.parse("(x*)")),
+            () -> assertThrows(CalculatorException.class, () -> Parser.parse("(3^2)"))
+        );
     }
 }
