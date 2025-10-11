@@ -1,7 +1,7 @@
 package ru.nsu.ekovalenko4.expressions;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,9 +19,11 @@ class ExpressionTest {
         Expression e2 = new Sub(new Number(50), new Number(5));
         Expression e3 = new Mul(new Variable("y"), new Number(10));
 
-        assertEquals(2.4, e1.eval("x=12"));
-        assertEquals(45.0, e2.eval(""));
-        assertEquals(5, e3.eval("y=0.5"));
+        assertAll(
+            () -> assertEquals(2.4, e1.eval("x=12")),
+            () -> assertEquals(45.0, e2.eval("")),
+            () -> assertEquals(5, e3.eval("y=0.5"))
+        );
     }
 
     @Test

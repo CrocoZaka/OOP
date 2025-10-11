@@ -22,7 +22,7 @@ class VariableTest {
     @Test
     void testEvalException() {
         Expression x = new Variable("x");
-        assertThrows(ExpressionException.class, () -> x.eval("y=5; z=8; "));
+        assertThrows(CalculatorException.class, () -> x.eval("y=5; z=8; "));
     }
 
     @Test

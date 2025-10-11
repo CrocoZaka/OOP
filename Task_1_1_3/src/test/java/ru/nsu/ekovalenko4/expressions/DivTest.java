@@ -28,6 +28,6 @@ class DivTest {
     @Test
     void testDivisionByZero() {
         Expression e = new Div(new Number(3), new Variable("x"));
-        assertThrows(ExpressionException.class, () -> e.eval("x=0"));
+        assertThrows(CalculatorException.class, () -> e.eval("x=0"));
     }
 }

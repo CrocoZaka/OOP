@@ -56,8 +56,8 @@ class ParserTest {
 
     @Test
     void testParseInvalidExpression() {
-        assertThrows(ParseException.class, () -> Parser.parse("3+2"));
-        assertThrows(ParseException.class, () -> Parser.parse("(x*)"));
-        assertThrows(ParseException.class, () -> Parser.parse("(3^2)"));
+        assertThrows(CalculatorException.class, () -> Parser.parse("3+2"));
+        assertThrows(CalculatorException.class, () -> Parser.parse("(x*)"));
+        assertThrows(CalculatorException.class, () -> Parser.parse("(3^2)"));
     }
 }
