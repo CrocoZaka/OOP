@@ -4,7 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Topological sorting implementation class.
+ * The class provides a static method sort(Graph<T> graph) returning
+ * a list of vertices in topologically sorted order.
+ */
 public class TopologicalSort {
+    /**
+     * Topological sorting method.
+     */
     public static <T> List<T> topologicalSort(Graph<T> graph) {
         HashMap<T, Integer> indegree = new HashMap<>();
         List<T> vertices = graph.getVertices();
@@ -26,7 +34,7 @@ public class TopologicalSort {
 
         List<T> result = new ArrayList<>();
         while (!queue.isEmpty()) {
-            T v = queue.removeFirst();
+            T v = queue.remove(0);
             result.add(v);
 
             for (T n : graph.getNeighbors(v)) {

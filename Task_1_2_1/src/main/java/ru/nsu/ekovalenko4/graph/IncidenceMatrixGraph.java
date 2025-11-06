@@ -15,14 +15,16 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
 
     private static final int SOURCE = 1;
     private static final int TARGET = -1;
+    private static final int INITIAL_CAPACITY = 8;
+
     private record Edge<T>(T from, T to) {
     }
+
     private final HashMap<T, Integer> vertexToIndex;
     private final HashMap<Integer, T> indexToVertex;
     private final ArrayList<Edge<T>> edges;
     private int[][] matrix;
 
-    private static final int INITIAL_CAPACITY = 8;
     public IncidenceMatrixGraph() {
         vertexToIndex = new HashMap<>();
         indexToVertex = new HashMap<>();
@@ -32,10 +34,14 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
 
     @Override
     public void addVertex(T vertex) {
-        if (vertexToIndex.containsKey(vertex)) return;
+        if (vertexToIndex.containsKey(vertex)) {
+            return;
+        }
 
         int idx = vertexToIndex.size();
-        if (idx >= matrix.length) expandRows();
+        if (idx >= matrix.length) {
+            expandRows();
+        }
         vertexToIndex.put(vertex, idx);
         indexToVertex.put(idx, vertex);
     }
@@ -58,13 +64,19 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
 
     @Override
     public void addEdge(T from, T to) {
-        if (!vertexToIndex.containsKey(from)) addVertex(from);
-        if (!vertexToIndex.containsKey(to)) addVertex(to);
+        if (!vertexToIndex.containsKey(from)) {
+            addVertex(from);
+        }
+        if (!vertexToIndex.containsKey(to)) {
+            addVertex(to);
+        }
 
-        if (edges.size() >= matrix[0].length) expandCols();
+        if (edges.size() >= matrix[0].length) {
+            expandCols();
+        }
 
-        int fromIdx = vertexToIndex.get(from);
-        int toIdx = vertexToIndex.get(to);
+        final int fromIdx = vertexToIndex.get(from);
+        final int toIdx = vertexToIndex.get(to);
 
         Edge<T> edge = new Edge<>(from, to);
         edges.add(edge);
@@ -73,8 +85,8 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
         for (int i = 0; i < vertexToIndex.size(); i++) {
             matrix[i][col] = 0;
         }
-        matrix[toIdx][col] = TARGET;
         matrix[fromIdx][col] = SOURCE;
+        matrix[toIdx][col] = TARGET;
     }
 
     @Override
@@ -133,7 +145,9 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
     public ArrayList<T> getNeighbors(T vertex) {
         ArrayList<T> res = new ArrayList<>();
         Integer idx = vertexToIndex.get(vertex);
-        if (idx == null) return res;
+        if (idx == null) {
+            return res;
+        }
 
         for (int i = 0; i < edges.size(); i++) {
             if (matrix[idx][i] == SOURCE) {
@@ -174,9 +188,11 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        ArrayList<T> vertices = new ArrayList<>(vertexToIndex.keySet());
+        final ArrayList<T> vertices = new ArrayList<>(vertexToIndex.keySet());
         sb.append("     ");
-        for (int j = 0; j < edges.size(); j++) sb.append("e").append(j).append(" ");
+        for (int j = 0; j < edges.size(); j++) {
+            sb.append("e").append(j).append(" ");
+        }
         sb.append("\n");
         for (int i = 0; i < vertices.size(); i++) {
             sb.append(String.format("%5s: ", vertices.get(i)));

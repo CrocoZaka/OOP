@@ -7,13 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static ru.nsu.ekovalenko4.graph.TopologicalSort.topologicalSort;
 
-import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.nio.file.Files;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for verifying correctness of all Graph implementations.
+ */
 public class GeneralGraphTest {
 
     private final List<Graph<String>> graphs = List.of(
@@ -24,10 +27,10 @@ public class GeneralGraphTest {
 
     private Graph<String> newInstance(Graph<String> g) {
         Graph<String> res = new AdjacencyMatrixGraph<>();
-        if (g instanceof IncidenceMatrixGraph<?>){
+        if (g instanceof IncidenceMatrixGraph<?>) {
             res = new IncidenceMatrixGraph<>();
         }
-        if (g instanceof AdjacencyListGraph<?>){
+        if (g instanceof AdjacencyListGraph<?>) {
             res = new AdjacencyListGraph<>();
         }
         return res;
@@ -66,7 +69,9 @@ public class GeneralGraphTest {
             for (int i = 0; i < 20; i++) {
                 String v = "V" + i;
                 g.addVertex(v);
-                if (i > 0) g.addEdge("V" + (i - 1), v);
+                if (i > 0) {
+                    g.addEdge("V" + (i - 1), v);
+                }
             }
 
             List<String> topo = topologicalSort(g);
@@ -149,7 +154,7 @@ public class GeneralGraphTest {
     @Test
     void testReadFromFileThrowsWhenNotFound() {
         for (Graph<String> g : graphs) {
-            assertThrows(FileNotFoundException.class, () -> g.readFromFile("no_such_file.txt"));
+            assertThrows(FileNotFoundException.class, () -> g.readFromFile("no_file.txt"));
         }
     }
 

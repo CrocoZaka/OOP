@@ -77,7 +77,9 @@ public class AdjacencyListGraph<T> implements Graph<T> {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof AdjacencyListGraph<?> g)) return false;
+        if (!(o instanceof AdjacencyListGraph<?> g)) {
+            return false;
+        }
         return adjList.equals(g.adjList);
     }
 

@@ -18,6 +18,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
     private boolean[][] matrix;
 
     private static final int INITIAL_CAPACITY = 8;
+
     public AdjacencyMatrixGraph() {
         vertexToIndex = new HashMap<>();
         indexToVertex = new HashMap<>();
