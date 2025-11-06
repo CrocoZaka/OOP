@@ -19,6 +19,10 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
 
     private static final int INITIAL_CAPACITY = 8;
 
+    /**
+     * Creates an empty directed graph represented by an adjacency matrix.
+     * Initially allocates a square matrix with a predefined capacity.
+     */
     public AdjacencyMatrixGraph() {
         vertexToIndex = new HashMap<>();
         indexToVertex = new HashMap<>();

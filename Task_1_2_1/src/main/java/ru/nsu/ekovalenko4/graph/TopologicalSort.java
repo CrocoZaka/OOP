@@ -6,8 +6,7 @@ import java.util.List;
 
 /**
  * Topological sorting implementation class.
- * The class provides a static method sort(Graph<T> graph) returning
- * a list of vertices in topologically sorted order.
+ * The class provides a sorting method returning a list of vertices in topologically sorted order.
  */
 public class TopologicalSort {
     /**

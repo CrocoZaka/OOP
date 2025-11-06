@@ -25,6 +25,10 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
     private final ArrayList<Edge<T>> edges;
     private int[][] matrix;
 
+    /**
+     * Creates an empty directed graph represented by an incidence matrix.
+     * The matrix is initialized with a predefined capacity for both vertices and edges.
+     */
     public IncidenceMatrixGraph() {
         vertexToIndex = new HashMap<>();
         indexToVertex = new HashMap<>();
@@ -85,8 +89,8 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
         for (int i = 0; i < vertexToIndex.size(); i++) {
             matrix[i][col] = 0;
         }
-        matrix[fromIdx][col] = SOURCE;
         matrix[toIdx][col] = TARGET;
+        matrix[fromIdx][col] = SOURCE;
     }
 
     @Override
@@ -174,7 +178,9 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof IncidenceMatrixGraph<?> g)) return false;
+        if (!(o instanceof IncidenceMatrixGraph<?> g)) {
+            return false;
+        }
         return vertexToIndex.equals(g.vertexToIndex)
                 && edges.equals(g.edges)
                 && Arrays.deepEquals(matrix, g.matrix);
