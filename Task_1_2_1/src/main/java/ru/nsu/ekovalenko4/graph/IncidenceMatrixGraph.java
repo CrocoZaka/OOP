@@ -1,11 +1,8 @@
 package ru.nsu.ekovalenko4.graph;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Scanner;
 
 /**
  * Implementation of a Graph using incidence matrix.
@@ -159,21 +156,6 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
             }
         }
         return res;
-    }
-
-    @Override
-    public void readFromFile(String filename) throws FileNotFoundException {
-        try (Scanner sc = new Scanner(new File(filename))) {
-            while (sc.hasNext()) {
-                String a = sc.next();
-                String b = sc.next();
-                @SuppressWarnings("unchecked")
-                T from = (T) a;
-                @SuppressWarnings("unchecked")
-                T to = (T) b;
-                addEdge(from, to);
-            }
-        }
     }
 
     @Override

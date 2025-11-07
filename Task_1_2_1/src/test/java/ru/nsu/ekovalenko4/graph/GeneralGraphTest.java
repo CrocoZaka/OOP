@@ -154,7 +154,7 @@ public class GeneralGraphTest {
     @Test
     void testReadFromFileThrowsWhenNotFound() {
         for (Graph<String> g : graphs) {
-            assertThrows(FileNotFoundException.class, () -> g.readFromFile("no_file.txt"));
+            assertThrows(FileNotFoundException.class, () -> g.readFromFile("no_file.txt", s -> s));
         }
     }
 
@@ -175,7 +175,7 @@ public class GeneralGraphTest {
         }
 
         for (Graph<String> g : graphs) {
-            g.readFromFile(tempFile.getAbsolutePath());
+            g.readFromFile(tempFile.getAbsolutePath(), s -> s);
 
             assertTrue(g.getNeighbors("A").contains("B"));
             assertTrue(g.getNeighbors("B").contains("C"));

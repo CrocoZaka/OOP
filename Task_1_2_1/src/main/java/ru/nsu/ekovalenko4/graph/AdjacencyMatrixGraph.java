@@ -1,11 +1,8 @@
 package ru.nsu.ekovalenko4.graph;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Scanner;
 
 /**
  * Implementation of a Graph using adjacency matrix.
@@ -124,21 +121,6 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
             }
         }
         return neighbors;
-    }
-
-    @Override
-    public void readFromFile(String filename) throws FileNotFoundException {
-        try (Scanner sc = new Scanner(new File(filename))) {
-            while (sc.hasNext()) {
-                String fromStr = sc.next();
-                String toStr = sc.next();
-                @SuppressWarnings("unchecked")
-                T from = (T) fromStr;
-                @SuppressWarnings("unchecked")
-                T to = (T) toStr;
-                addEdge(from, to);
-            }
-        }
     }
 
     @Override
