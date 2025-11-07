@@ -3,9 +3,16 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
+/**
+ * Generic hash table implementation that stores key-value pairs.
+ * Collisions are resolved using separate chaining (linked lists in buckets).
+ */
 public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
 
-     public static class Entry<K, V> {
+    /**
+     * Represents a key-value pair stored inside the hash table.
+     */
+    public static class Entry<K, V> {
         final K key;
         V value;
         Entry<K, V> next;
@@ -44,6 +51,9 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
         }
     }
 
+    /**
+     * Inserts a key-value pair into the hash table.
+     */
     public void put(K key, V value) {
         if (size >= table.length * LOAD_FACTOR) {
             resize();
@@ -63,6 +73,9 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
         modCount++;
     }
 
+    /**
+     * Removes the entry associated with the key from the hash table.
+     */
     public void remove(K key) {
         int index = hash(key);
         Entry<K, V> node = table[index];
@@ -82,6 +95,9 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
         }
     }
 
+    /**
+     * Returns the value associated with the key.
+     */
     public V get(K key) {
         int index = hash(key);
         Entry<K, V> node = table[index];
@@ -93,6 +109,9 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
         return null;
     }
 
+    /**
+     * Updates the value associated with the key.
+     */
     public void update(K key, V newValue) {
         int index = hash(key);
         Entry<K, V> node = table[index];

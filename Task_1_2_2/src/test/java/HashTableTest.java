@@ -5,13 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import java.util.ConcurrentModificationException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class HashTableTest {
 
@@ -24,7 +23,7 @@ class HashTableTest {
 
     private int countEntries(HashTable<String, Integer> map) {
         int count = 0;
-        for (HashTable.Entry<String, Integer> ignored : map){
+        for (HashTable.Entry<String, Integer> ignored : map) {
             count++;
         }
         return count;
@@ -160,7 +159,9 @@ class HashTableTest {
     @Test
     void testIteratorThrowsNoSuchElementException() {
         Iterator<HashTable.Entry<String, Integer>> it = table.iterator();
-        while (it.hasNext()) it.next();
+        while (it.hasNext()) {
+            it.next();
+        }
         assertThrows(NoSuchElementException.class, it::next);
     }
 
