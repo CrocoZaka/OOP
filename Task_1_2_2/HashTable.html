@@ -80,6 +80,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HashTable&lt;K,<wbr>V&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="HashTable.Entry.html" title="class in Unnamed Package">HashTable.Entry</a>&lt;K,<wbr>V&gt;&gt;</span></div>
+<div class="block">Generic hash table implementation that stores key-value pairs.
+ Collisions are resolved using separate chaining (linked lists in buckets).</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,7 +96,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="HashTable.Entry.html" class="type-name-link" title="class in Unnamed Package">HashTable.Entry</a>&lt;<a href="HashTable.Entry.html" title="type parameter in HashTable.Entry">K</a>,<wbr><a href="HashTable.Entry.html" title="type parameter in HashTable.Entry">V</a>&gt;</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Represents a key-value pair stored inside the hash table.</div>
+</div>
 </div>
 </section>
 </li>
@@ -130,7 +134,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashTable.html" title="type parameter in HashTable">V</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(K)" class="member-name-link">get</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value associated with the key.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -140,17 +146,23 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#put(K,V)" class="member-name-link">put</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts a key-value pair into the hash table.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(K)" class="member-name-link">remove</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes the entry associated with the key from the hash table.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#update(K,V)" class="member-name-link">update</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the value associated with the key.</div>
+</div>
 </div>
 </div>
 </div>
@@ -190,18 +202,21 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3 id="put(java.lang.Object,java.lang.Object)">put</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">put</span><wbr><span class="parameters">(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</span></div>
+<div class="block">Inserts a key-value pair into the hash table.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="remove(K)">
 <h3 id="remove(java.lang.Object)">remove</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">remove</span><wbr><span class="parameters">(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</span></div>
+<div class="block">Removes the entry associated with the key from the hash table.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="get(K)">
 <h3 id="get(java.lang.Object)">get</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashTable.html" title="type parameter in HashTable">V</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</span></div>
+<div class="block">Returns the value associated with the key.</div>
 </section>
 </li>
 <li>
@@ -209,6 +224,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3 id="update(java.lang.Object,java.lang.Object)">update</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">update</span><wbr><span class="parameters">(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;newValue)</span></div>
+<div class="block">Updates the value associated with the key.</div>
 </section>
 </li>
 <li>
