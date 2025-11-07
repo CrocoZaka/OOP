@@ -28,7 +28,8 @@ public interface Graph<T> {
      * The file must contain pairs of vertex identifiers (from-to)
      * separated by whitespace, one edge per line.
      */
-    default void readFromFile(String filename, Function<String, T> parser) throws FileNotFoundException {
+    default void readFromFile(String filename, Function<String, T> parser) throws
+            FileNotFoundException {
         try (Scanner sc = new Scanner(new File(filename))) {
             while (sc.hasNext()) {
                 String fromStr = sc.next();
