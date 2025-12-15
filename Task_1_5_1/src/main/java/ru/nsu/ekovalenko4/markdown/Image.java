@@ -10,6 +10,9 @@ public final class Image extends Element {
     private final String src;
     private final String title;
 
+    /**
+     * Constructs Image with specified alt text, image source and title text.
+     */
     public Image(String alt, String src, String title) {
         this.alt = alt == null ? "" : alt;
         if (src == null || src.isBlank()) {

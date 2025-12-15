@@ -91,6 +91,9 @@ public final class Table extends Element {
         return Objects.hash(header, alignments, rows, rowLimit);
     }
 
+    /**
+     * Table builder class, used for specifying attributes and adding new rows.
+     */
     public static final class Builder {
 
         private final List<Text> header = new ArrayList<>();
@@ -99,6 +102,9 @@ public final class Table extends Element {
         private int rowLimit = 0;
         private boolean headerSet = false;
 
+        /**
+         * Method for specifying alignments.
+         */
         public Builder withAlignments(int... alignments) {
             this.alignments.clear();
             for (int a : alignments) {
@@ -112,6 +118,9 @@ public final class Table extends Element {
             return this;
         }
 
+        /**
+         * Method for adding Text rows.
+         */
         public Builder addRow(Text... cells) {
             List<Text> row = List.of(cells);
 
@@ -124,6 +133,9 @@ public final class Table extends Element {
             return this;
         }
 
+        /**
+         * Method for adding Object rows.
+         */
         public Builder addRow(Object... cells) {
             Text[] converted = new Text[cells.length];
             for (int i = 0; i < cells.length; i++) {

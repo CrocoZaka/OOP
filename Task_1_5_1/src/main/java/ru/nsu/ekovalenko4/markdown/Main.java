@@ -4,6 +4,9 @@ package ru.nsu.ekovalenko4.markdown;
  * Main class for demonstration purpose.
  */
 public class Main {
+    /**
+     * Main function generating markdown.
+     */
     public static void main(String[] args) {
         Header header = new Header(1, Text.builder("Markdown Demo").bold().build());
 

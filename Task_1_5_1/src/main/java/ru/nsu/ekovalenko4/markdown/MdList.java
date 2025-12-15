@@ -31,6 +31,9 @@ public abstract class MdList extends Element {
         return Objects.hash(items, getClass());
     }
 
+    /**
+     * Unordered Markdown list subclass.
+     */
     public static class Unordered extends MdList {
         public Unordered(List<Element> items) {
             super(items);
@@ -51,6 +54,9 @@ public abstract class MdList extends Element {
             return sb.toString();
         }
 
+        /**
+         * Unordered list builder class, used for adding new elements inside lists.
+         */
         public static class Builder {
             private final List<Element> items = new ArrayList<>();
 
@@ -65,6 +71,9 @@ public abstract class MdList extends Element {
         }
     }
 
+    /**
+     * Ordered Markdown list subclass.
+     */
     public static class Ordered extends MdList {
         public Ordered(List<Element> items) {
             super(items);
@@ -87,6 +96,9 @@ public abstract class MdList extends Element {
             return sb.toString();
         }
 
+        /**
+         * Ordered list builder class, used for adding new elements inside lists.
+         */
         public static class Builder {
             private final List<Element> items = new ArrayList<>();
 

@@ -10,10 +10,16 @@ public final class Link extends Element {
     private final String url;
     private final String title;
 
+    /**
+     * Constructs Link with specified Text content and url.
+     */
     public Link(Text content, String url) {
         this(content, url, null);
     }
 
+    /**
+     * Constructs Link with specified Text content, url and title string.
+     */
     public Link(Text content, String url, String title) {
         this.content = content;
         if (url == null || url.isBlank()) {

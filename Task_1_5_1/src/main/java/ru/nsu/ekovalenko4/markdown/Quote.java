@@ -45,6 +45,9 @@ public final class Quote extends Element {
         return Objects.hash(items);
     }
 
+    /**
+     * Quote builder class, used for adding new elements inside quotes.
+     */
     public static class Builder {
 
         private final List<Element> items = new ArrayList<>();

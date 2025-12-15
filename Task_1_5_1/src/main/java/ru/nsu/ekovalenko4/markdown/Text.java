@@ -10,6 +10,9 @@ import java.util.Objects;
  */
 public final class Text extends Element {
 
+    /**
+     * Enum class for formatting style names and markers
+     */
     public enum Style {
         CODE("`"),
         STRIKE("~~"),
@@ -77,6 +80,9 @@ public final class Text extends Element {
         return new Builder(content);
     }
 
+    /**
+     * Text builder class, used for specifying text formatting
+     */
     public static final class Builder {
         private final String content;
         private final EnumSet<Style> styles = EnumSet.noneOf(Style.class);
@@ -111,11 +117,13 @@ public final class Text extends Element {
             }
 
             if (styles.contains(Style.CODE) && styles.size() > 1) {
-                throw new IllegalArgumentException("Inline code can't be combined with other " +
-                        "styles");
+                throw new IllegalArgumentException("Inline can't be combined with other styles");
             }
         }
 
+        /**
+         * Build method, returns formatted text string
+         */
         public Text build() {
             check();
             return new Text(this);
