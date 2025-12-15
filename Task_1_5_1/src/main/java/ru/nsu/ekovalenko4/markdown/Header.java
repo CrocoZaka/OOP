@@ -10,7 +10,7 @@ public final class Header extends Element {
     private final Text content;
 
     /**
-     * Constructs Header with specified level and Text content
+     * Constructs Header with specified level and Text content.
      */
     public Header(int level, Text content) {
         if (level < 1) {

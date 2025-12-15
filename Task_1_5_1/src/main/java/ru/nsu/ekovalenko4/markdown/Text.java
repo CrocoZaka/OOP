@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class Text extends Element {
 
     /**
-     * Enum class for formatting style names and markers
+     * Enum class for formatting style names and markers.
      */
     public enum Style {
         CODE("`"),
@@ -81,7 +81,7 @@ public final class Text extends Element {
     }
 
     /**
-     * Text builder class, used for specifying text formatting
+     * Text builder class, used for specifying text formatting.
      */
     public static final class Builder {
         private final String content;
@@ -122,7 +122,7 @@ public final class Text extends Element {
         }
 
         /**
-         * Build method, returns formatted text string
+         * Build method, returns formatted text string.
          */
         public Text build() {
             check();
