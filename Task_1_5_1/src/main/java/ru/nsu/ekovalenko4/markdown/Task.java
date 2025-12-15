@@ -2,6 +2,9 @@ package ru.nsu.ekovalenko4.markdown;
 
 import java.util.Objects;
 
+/**
+ * Represents a Markdown task (checkbox) with checked state and text.
+ */
 public final class Task extends Element {
     private final boolean checked;
     private final Text content;

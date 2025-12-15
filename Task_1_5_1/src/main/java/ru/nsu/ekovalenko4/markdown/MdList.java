@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Abstract base for Markdown lists.
+ * Includes Unordered and Ordered list implementations.
+ */
 public abstract class MdList extends Element {
     protected final List<Element> items;
 
@@ -28,7 +32,9 @@ public abstract class MdList extends Element {
     }
 
     public static class Unordered extends MdList {
-        public Unordered(List<Element> items) { super(items); }
+        public Unordered(List<Element> items) {
+            super(items);
+        }
 
         @Override
         public String toMarkdown() {
@@ -60,7 +66,9 @@ public abstract class MdList extends Element {
     }
 
     public static class Ordered extends MdList {
-        public Ordered(List<Element> items) { super(items); }
+        public Ordered(List<Element> items) {
+            super(items);
+        }
 
         @Override
         public String toMarkdown() {
@@ -87,7 +95,9 @@ public abstract class MdList extends Element {
                 return this;
             }
 
-            public Ordered build() { return new Ordered(items); }
+            public Ordered build() {
+                return new Ordered(items);
+            }
         }
     }
 }

@@ -4,6 +4,10 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents formatted text in Markdown.
+ * Use Builder to create instances.
+ */
 public final class Text extends Element {
 
     public enum Style {
@@ -107,7 +111,8 @@ public final class Text extends Element {
             }
 
             if (styles.contains(Style.CODE) && styles.size() > 1) {
-                throw new IllegalArgumentException("Inline code can't be combined with text styles");
+                throw new IllegalArgumentException("Inline code can't be combined with other " +
+                        "styles");
             }
         }
 

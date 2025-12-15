@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for Header.
+ */
 class HeaderTest {
 
     @Test

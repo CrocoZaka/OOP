@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for Text.
+ */
 public class TextTest {
 
     @Test

@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit test for Main.
+ */
 class MainTest {
     @Test
     void main() {

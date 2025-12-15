@@ -2,6 +2,9 @@ package ru.nsu.ekovalenko4.markdown;
 
 import java.util.Objects;
 
+/**
+ * Represents a Markdown link with text, URL, and optional title.
+ */
 public final class Link extends Element {
     private final Text content;
     private final String url;

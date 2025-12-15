@@ -2,6 +2,9 @@ package ru.nsu.ekovalenko4.markdown;
 
 import java.util.Objects;
 
+/**
+ * Represents a Markdown header (levels 1-6) with text content.
+ */
 public final class Header extends Element {
     private final int level;
     private final Text content;

@@ -3,6 +3,9 @@ package ru.nsu.ekovalenko4.markdown;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for Element.
+ */
 class ElementTest {
 
     @Test

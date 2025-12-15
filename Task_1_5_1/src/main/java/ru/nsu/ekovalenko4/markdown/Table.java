@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Markdown table element.
+ * Represents a Markdown table with header, rows, and column alignment.
+ * Use Builder to create instances.
  */
 public final class Table extends Element {
 
@@ -40,7 +41,9 @@ public final class Table extends Element {
 
         int written = 0;
         for (List<Text> row : rows) {
-            if (rowLimit > 0 && written >= rowLimit) break;
+            if (rowLimit > 0 && written >= rowLimit) {
+                break;
+            }
             appendRow(sb, row);
             written++;
         }

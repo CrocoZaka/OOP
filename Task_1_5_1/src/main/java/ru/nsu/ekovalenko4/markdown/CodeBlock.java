@@ -2,6 +2,9 @@ package ru.nsu.ekovalenko4.markdown;
 
 import java.util.Objects;
 
+/**
+ * Represents a fenced code block in Markdown with optional language.
+ */
 public final class CodeBlock extends Element {
     private final String language;
     private final String code;

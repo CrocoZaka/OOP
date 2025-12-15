@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for Quote.
+ */
 class QuoteTest {
 
     @Test

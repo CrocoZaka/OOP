@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a Markdown blockquote containing multiple elements.
+ */
 public final class Quote extends Element {
     private final List<Element> items;
 
@@ -45,6 +48,7 @@ public final class Quote extends Element {
     public static class Builder {
 
         private final List<Element> items = new ArrayList<>();
+
         public Builder add(Element e) {
             items.add(e);
             return this;

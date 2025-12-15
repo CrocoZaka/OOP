@@ -2,6 +2,9 @@ package ru.nsu.ekovalenko4.markdown;
 
 import java.util.Objects;
 
+/**
+ * Represents a Markdown image with alt text, source, and optional title.
+ */
 public final class Image extends Element {
     private final String alt;
     private final String src;
