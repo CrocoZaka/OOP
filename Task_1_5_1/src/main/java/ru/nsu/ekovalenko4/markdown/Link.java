@@ -32,8 +32,12 @@ public final class Link extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Link other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Link other)) {
+            return false;
+        }
         return Objects.equals(content, other.content) && Objects.equals(url, other.url)
             && Objects.equals(title, other.title);
     }

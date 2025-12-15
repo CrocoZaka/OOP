@@ -3,6 +3,7 @@ package ru.nsu.ekovalenko4.markdown;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import org.junit.jupiter.api.Test;
 
 class CodeBlockTest {

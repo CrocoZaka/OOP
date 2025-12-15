@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import org.junit.jupiter.api.Test;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
-class MDListTest {
+class MdListTest {
 
     @Test
     void testUnorderedListSimple() {
-        MDList.Unordered list = new MDList.Unordered.Builder()
+        MdList.Unordered list = new MdList.Unordered.Builder()
                 .add(Text.builder("A").build())
                 .add(Text.builder("B").build())
                 .build();
@@ -21,7 +21,7 @@ class MDListTest {
 
     @Test
     void testOrderedListSimple() {
-        MDList.Ordered list = new MDList.Ordered.Builder()
+        MdList.Ordered list = new MdList.Ordered.Builder()
                 .add(Text.builder("A").build())
                 .add(Text.builder("B").build())
                 .build();
@@ -30,25 +30,25 @@ class MDListTest {
 
     @Test
     void testUnorderedListWithMultilineElement() {
-        MDList.Unordered list = new MDList.Unordered(List.of(Text.builder("A\nB").build()));
+        MdList.Unordered list = new MdList.Unordered(List.of(Text.builder("A\nB").build()));
         assertEquals("- A\n- B", list.toMarkdown());
     }
 
     @Test
     void testOrderedListWithMultilineElement() {
-        MDList.Ordered list = new MDList.Ordered(List.of(Text.builder("A\nB").build()));
+        MdList.Ordered list = new MdList.Ordered(List.of(Text.builder("A\nB").build()));
         assertEquals("1. A\n2. B", list.toMarkdown());
     }
 
     @Test
     void testEqualsAndHashCodeUnordered() {
-        MDList.Unordered l1 = new MDList.Unordered(
+        MdList.Unordered l1 = new MdList.Unordered(
                 List.of(Text.builder("A").build())
         );
-        MDList.Unordered l2 = new MDList.Unordered(
+        MdList.Unordered l2 = new MdList.Unordered(
                 List.of(Text.builder("A").build())
         );
-        MDList.Ordered l3 = new MDList.Ordered(
+        MdList.Ordered l3 = new MdList.Ordered(
                 List.of(Text.builder("A").build())
         );
         Text t1 = Text.builder("Text").build();
@@ -64,11 +64,11 @@ class MDListTest {
 
     @Test
     void testBuilderCreatesEquivalentList() {
-        MDList.Unordered fromBuilder = new MDList.Unordered.Builder()
+        MdList.Unordered fromBuilder = new MdList.Unordered.Builder()
                 .add(Text.builder("A").build())
                 .add(Text.builder("B").build())
                 .build();
-        MDList.Unordered direct = new MDList.Unordered(
+        MdList.Unordered direct = new MdList.Unordered(
                 List.of(
                         Text.builder("A").build(),
                         Text.builder("B").build()
@@ -79,9 +79,9 @@ class MDListTest {
 
     @Test
     void testNullItemsList() {
-        MDList.Unordered l1 = new MDList.Unordered(null);
+        MdList.Unordered l1 = new MdList.Unordered(null);
         assertEquals("", l1.toMarkdown());
-        MDList.Ordered l2 = new MDList.Ordered(null);
+        MdList.Ordered l2 = new MdList.Ordered(null);
         assertEquals("", l2.toMarkdown());
     }
 }

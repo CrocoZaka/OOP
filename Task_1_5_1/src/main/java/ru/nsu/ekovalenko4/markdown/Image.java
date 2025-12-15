@@ -27,9 +27,15 @@ public final class Image extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Image other)) return false;
-        return Objects.equals(alt, other.alt) && Objects.equals(src, other.src) && Objects.equals(title, other.title);
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Image other)) {
+            return false;
+        }
+        return Objects.equals(alt, other.alt)
+                && Objects.equals(src, other.src)
+                && Objects.equals(title, other.title);
     }
 
     @Override

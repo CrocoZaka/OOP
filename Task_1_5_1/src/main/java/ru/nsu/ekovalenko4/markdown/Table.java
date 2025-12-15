@@ -71,8 +71,12 @@ public final class Table extends Element {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Table table)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Table table)) {
+            return false;
+        }
         return rowLimit == table.rowLimit
                 && header.equals(table.header)
                 && alignments.equals(table.alignments)
@@ -137,7 +141,7 @@ public final class Table extends Element {
                 throw new IllegalArgumentException("Table must have a header row");
             }
             if (!alignments.isEmpty() && alignments.size() != header.size()) {
-                throw new IllegalArgumentException("Number of alignments must match number of columns");
+                throw new IllegalArgumentException("Alignments count must match columns count");
             }
             if (alignments.isEmpty()) {
                 for (int i = 0; i < header.size(); i++) {

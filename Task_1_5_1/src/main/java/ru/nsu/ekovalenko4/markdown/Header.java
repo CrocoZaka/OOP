@@ -7,8 +7,12 @@ public final class Header extends Element {
     private final Text content;
 
     public Header(int level, Text content) {
-        if (level < 1) level = 1;
-        if (level > 6) level = 6;
+        if (level < 1) {
+            level = 1;
+        }
+        if (level > 6) {
+            level = 6;
+        }
         this.level = level;
         this.content = content;
     }
@@ -20,8 +24,12 @@ public final class Header extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Header other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Header other)) {
+            return false;
+        }
         return level == other.level && content.equals(other.content);
     }
 

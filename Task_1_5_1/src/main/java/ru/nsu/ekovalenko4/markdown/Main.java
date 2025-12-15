@@ -10,19 +10,19 @@ public class Main {
         Text code = Text.builder("inline code").code().build();
 
         Link link = new Link(Text.builder("Markdown").build(),
-                "https://en.wikipedia" +
-                ".org/wiki/Markdown");
+                "https://en.wikipedia"
+                + ".org/wiki/Markdown");
         Image image = new Image("Markdown Logo",
                 "https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg",
                 "Logo");
 
-        MDList.Unordered ul = new MDList.Unordered.Builder()
+        MdList.Unordered ul = new MdList.Unordered.Builder()
                 .add(Text.builder("Item 1").build())
                 .add(Text.builder("Item 2").italic().build())
                 .add(Text.builder("Item 3").bold().build())
                 .build();
 
-        MDList.Ordered ol = new MDList.Ordered.Builder()
+        MdList.Ordered ol = new MdList.Ordered.Builder()
                 .add(Text.builder("First").build())
                 .add(Text.builder("Second").build())
                 .add(Text.builder("Third").build())
@@ -45,25 +45,25 @@ public class Main {
                 .build();
 
         CodeBlock codeBlock = new  CodeBlock("java",
-                "public static void main(String[] args) {\n" +
-                        "    System.out.println(\"Hello, Markdown!\");\n" +
-                        "}");
+                "public static void main(String[] args) {\n"
+                        + "    System.out.println(\"Hello, Markdown!\");\n"
+                        + "}");
 
-        String md = header.toMarkdown() + "\n\n" +
-                paragraph.toMarkdown() + " " +
-                bold.toMarkdown() + " " +
-                italic.toMarkdown() + " " +
-                code.toMarkdown() + "\n\n" +
-                link.toMarkdown() + "\n\n" +
-                image.toMarkdown() + "\n\n" +
-                "Unordered List:\n" + ul.toMarkdown() + "\n\n" +
-                "Ordered List:\n" + ol.toMarkdown() + "\n\n" +
-                "Tasks:\n" +
-                task1.toMarkdown() + "\n" +
-                task2.toMarkdown() + "\n\n" +
-                "Table:\n" + table.toMarkdown() + "\n\n" +
-                "Quote:\n" + quote.toMarkdown() + "\n\n" +
-                "Code Block:\n" + codeBlock.toMarkdown();
+        String md = header.toMarkdown() + "\n\n"
+                + paragraph.toMarkdown() + " "
+                + bold.toMarkdown() + " "
+                + italic.toMarkdown() + " "
+                + code.toMarkdown() + "\n\n"
+                + link.toMarkdown() + "\n\n"
+                + image.toMarkdown() + "\n\n"
+                + "Unordered List:\n" + ul.toMarkdown() + "\n\n"
+                + "Ordered List:\n" + ol.toMarkdown() + "\n\n"
+                + "Tasks:\n"
+                + task1.toMarkdown() + "\n"
+                + task2.toMarkdown() + "\n\n"
+                + "Table:\n" + table.toMarkdown() + "\n\n"
+                + "Quote:\n" + quote.toMarkdown() + "\n\n"
+                + "Code Block:\n" + codeBlock.toMarkdown();
 
         System.out.println(md);
     }

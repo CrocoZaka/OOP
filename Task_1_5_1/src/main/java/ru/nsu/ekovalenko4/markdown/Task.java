@@ -18,8 +18,12 @@ public final class Task extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Task other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Task other)) {
+            return false;
+        }
         return checked == other.checked && Objects.equals(content, other.content);
     }
 

@@ -28,8 +28,12 @@ public final class Quote extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Quote other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Quote other)) {
+            return false;
+        }
         return Objects.equals(items, other.items);
     }
 
@@ -39,11 +43,13 @@ public final class Quote extends Element {
     }
 
     public static class Builder {
+
         private final List<Element> items = new ArrayList<>();
         public Builder add(Element e) {
             items.add(e);
             return this;
         }
+
         public Quote build() {
             return new Quote(items);
         }

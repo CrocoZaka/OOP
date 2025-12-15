@@ -70,7 +70,7 @@ public class TextTest {
         Text t1 = Text.builder("Bold").bold().build();
         Text t2 = Text.builder("Bold").bold().build();
         Text t3 = Text.builder("Italic").italic().build();
-        Header h1 = new Header(1,t1);
+        Header h1 = new Header(1, t1);
 
         assertAll(
             () -> assertEquals(t1, t1),

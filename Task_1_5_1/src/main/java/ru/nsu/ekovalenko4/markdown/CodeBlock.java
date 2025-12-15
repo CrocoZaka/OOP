@@ -19,8 +19,12 @@ public final class CodeBlock extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof CodeBlock other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof CodeBlock other)) {
+            return false;
+        }
         return Objects.equals(language, other.language) && Objects.equals(code, other.code);
     }
 

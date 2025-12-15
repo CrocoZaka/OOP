@@ -22,9 +22,9 @@ class TableTest {
                 )
                 .build();
         assertEquals(
-                "| A | B |\n" +
-                        "| :--- | :--- |\n" +
-                        "| 1 | 2 |",
+                "| A | B |\n"
+                        + "| :--- | :--- |\n"
+                        + "| 1 | 2 |",
                 table.toMarkdown()
         );
     }
@@ -41,9 +41,9 @@ class TableTest {
                 .addRow("1", "2", "3")
                 .build();
         assertEquals(
-                "| A | B | C |\n" +
-                        "| :--- | :---: | ---: |\n" +
-                        "| 1 | 2 | 3 |",
+                "| A | B | C |\n"
+                        + "| :--- | :---: | ---: |\n"
+                        + "| 1 | 2 | 3 |",
                 table.toMarkdown()
         );
     }
@@ -57,9 +57,9 @@ class TableTest {
                 .addRow("3", "4")
                 .build();
         assertEquals(
-                "| A | B |\n" +
-                        "| :--- | :--- |\n" +
-                        "| 1 | 2 |",
+                "| A | B |\n"
+                        + "| :--- | :--- |\n"
+                        + "| 1 | 2 |",
                 table.toMarkdown()
         );
     }

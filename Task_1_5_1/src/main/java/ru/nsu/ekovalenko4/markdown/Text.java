@@ -107,7 +107,7 @@ public final class Text extends Element {
             }
 
             if (styles.contains(Style.CODE) && styles.size() > 1) {
-                throw new IllegalArgumentException("Inline code can't be combined with other text styles");
+                throw new IllegalArgumentException("Inline code can't be combined with text styles");
             }
         }
 
