@@ -22,16 +22,18 @@ public class Main {
                 "https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg",
                 "Logo");
 
-        MdList.Unordered ul = new MdList.Unordered.Builder()
+        MdList ul = new MdList.Builder()
                 .add(Text.builder("Item 1").build())
                 .add(Text.builder("Item 2").italic().build())
                 .add(Text.builder("Item 3").bold().build())
+                .unordered()
                 .build();
 
-        MdList.Ordered ol = new MdList.Ordered.Builder()
+        MdList ol = new MdList.Builder()
                 .add(Text.builder("First").build())
                 .add(Text.builder("Second").build())
                 .add(Text.builder("Third").build())
+                .ordered()
                 .build();
 
         Task task1 = new Task(false, Text.builder("Learn Java").build());

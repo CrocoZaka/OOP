@@ -3,6 +3,7 @@ package ru.nsu.ekovalenko4.markdown;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,13 +34,10 @@ class HeaderTest {
 
     @Test
     void testHeaderLevelBounds() {
-        Header header1 = new Header(0, Text.builder("Min").build());
-        assertEquals(1, header1.level());
-        assertEquals("# Min", header1.toMarkdown());
-
-        Header header2 = new Header(10, Text.builder("Max").build());
-        assertEquals(6, header2.level());
-        assertEquals("###### Max", header2.toMarkdown());
+        assertThrows(IllegalArgumentException.class, () -> new Header(0,
+                Text.builder("Min").build()));
+        assertThrows(IllegalArgumentException.class, () -> new Header(10,
+                Text.builder("Max").build()));
     }
 
     @Test

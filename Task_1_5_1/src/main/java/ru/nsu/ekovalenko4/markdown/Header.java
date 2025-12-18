@@ -13,11 +13,8 @@ public final class Header extends Element {
      * Constructs Header with specified level and Text content.
      */
     public Header(int level, Text content) {
-        if (level < 1) {
-            level = 1;
-        }
-        if (level > 6) {
-            level = 6;
+        if (level < 1 || level > 6) {
+            throw new IllegalArgumentException("Heading level should be between 1 and 6");
         }
         this.level = level;
         this.content = content;

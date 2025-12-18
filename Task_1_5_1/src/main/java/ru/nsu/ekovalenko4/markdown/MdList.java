@@ -5,14 +5,46 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Abstract base for Markdown lists.
- * Includes Unordered and Ordered list implementations.
+ * Represents a Markdown list.
+ * Supports ordered and unordered list types.
  */
-public abstract class MdList extends Element {
-    protected final List<Element> items;
+public class MdList extends Element {
 
-    protected MdList(List<Element> items) {
-        this.items = items == null ? List.of() : List.copyOf(items);
+    /**
+     * List type specification.
+     */
+    public enum Type {
+        ORDERED,
+        UNORDERED
+    }
+
+    private final Type type;
+    private final List<Element> items;
+
+    private MdList(Builder builder) {
+        this.type = builder.type;
+        this.items = List.copyOf(builder.items);
+    }
+
+    @Override
+    public String toMarkdown() {
+        StringBuilder sb = new StringBuilder();
+        int index = 1;
+        for (Element item : items) {
+            String[] lines = item.toMarkdown().split("\n");
+            for (String line : lines) {
+                if (type == Type.ORDERED) {
+                    sb.append(index++).append(". ").append(line).append("\n");
+                } else {
+                    sb.append("- ").append(line).append("\n");
+                }
+            }
+        }
+        if (!sb.isEmpty()) {
+            sb.setLength(sb.length() - 1);
+        }
+
+        return sb.toString();
     }
 
     @Override
@@ -23,93 +55,55 @@ public abstract class MdList extends Element {
         if (!(obj instanceof MdList other)) {
             return false;
         }
-        return Objects.equals(items, other.items) && this.getClass().equals(other.getClass());
+        return type == other.type && items.equals(other.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(items, getClass());
+        return Objects.hash(type, items);
     }
 
     /**
-     * Unordered Markdown list subclass.
+     * Builder for MDList.
      */
-    public static class Unordered extends MdList {
-        public Unordered(List<Element> items) {
-            super(items);
-        }
+    public static final class Builder {
+        private Type type;
+        private final List<Element> items = new ArrayList<>();
 
-        @Override
-        public String toMarkdown() {
-            StringBuilder sb = new StringBuilder();
-            for (Element e : items) {
-                String[] lines = e.toMarkdown().split("\n");
-                for (String line : lines) {
-                    sb.append("- ").append(line).append("\n");
-                }
-            }
-            if (!sb.isEmpty()) {
-                sb.setLength(sb.length() - 1);
-            }
-            return sb.toString();
+        /**
+         * Specifies ordered list type.
+         */
+        public Builder ordered() {
+            this.type = Type.ORDERED;
+            return this;
         }
 
         /**
-         * Unordered list builder class, used for adding new elements inside lists.
+         * Specifies unordered list type.
          */
-        public static class Builder {
-            private final List<Element> items = new ArrayList<>();
-
-            public Builder add(Element e) {
-                items.add(e);
-                return this;
-            }
-
-            public Unordered build() {
-                return new Unordered(items);
-            }
-        }
-    }
-
-    /**
-     * Ordered Markdown list subclass.
-     */
-    public static class Ordered extends MdList {
-        public Ordered(List<Element> items) {
-            super(items);
+        public Builder unordered() {
+            this.type = Type.UNORDERED;
+            return this;
         }
 
-        @Override
-        public String toMarkdown() {
-            StringBuilder sb = new StringBuilder();
-            int index = 1;
-            for (int i = 0; i < items.size(); i++) {
-                Element e = items.get(i);
-                String[] lines = e.toMarkdown().split("\n");
-                for (String line : lines) {
-                    sb.append(index++).append(". ").append(line).append("\n");
-                }
-            }
-            if (!sb.isEmpty()) {
-                sb.setLength(sb.length() - 1);
-            }
-            return sb.toString();
+        public Builder add(Element e) {
+            items.add(e);
+            return this;
         }
 
-        /**
-         * Ordered list builder class, used for adding new elements inside lists.
-         */
-        public static class Builder {
-            private final List<Element> items = new ArrayList<>();
-
-            public Builder add(Element e) {
-                items.add(e);
-                return this;
+        private void check() {
+            if (type == null) {
+                throw new IllegalArgumentException("List type must be specified");
             }
-
-            public Ordered build() {
-                return new Ordered(items);
+            if (items.isEmpty()) {
+                throw new IllegalArgumentException("List cannot be empty");
             }
+        }
+
+        public MdList build() {
+            check();
+            return new MdList(this);
         }
     }
 }
+
