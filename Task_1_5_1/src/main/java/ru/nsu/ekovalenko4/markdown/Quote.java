@@ -20,7 +20,11 @@ public final class Quote extends Element {
         for (Element e : items) {
             String[] lines = e.toMarkdown().split("\n");
             for (String line : lines) {
-                sb.append("> ").append(line).append("\n");
+                if (line.charAt(0) == '>') {
+                    sb.append("> \\").append(line).append("\n");
+                } else {
+                    sb.append("> ").append(line).append("\n");
+                }
             }
         }
         if (!sb.isEmpty()) {

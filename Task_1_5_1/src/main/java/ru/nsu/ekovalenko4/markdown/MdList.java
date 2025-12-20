@@ -21,9 +21,9 @@ public class MdList extends Element {
     private final Type type;
     private final List<Element> items;
 
-    private MdList(Builder builder) {
-        this.type = builder.type;
-        this.items = List.copyOf(builder.items);
+    private MdList(Type type, List<Element> items) {
+        this.type = type;
+        this.items = List.copyOf(items);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class MdList extends Element {
 
         public MdList build() {
             check();
-            return new MdList(this);
+            return new MdList(type, items);
         }
     }
 }

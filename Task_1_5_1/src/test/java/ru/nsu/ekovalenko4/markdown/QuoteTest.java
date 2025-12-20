@@ -70,6 +70,12 @@ class QuoteTest {
     }
 
     @Test
+    void testTextStartsWithSpecialCharacter() {
+        Quote quote = new Quote.Builder().add(Text.builder(">Text").build()).build();
+        assertEquals("> \\>Text", quote.toMarkdown());
+    }
+
+    @Test
     void testEqualsAndHashCode() {
         Quote q1 = new Quote(
                 List.of(Text.builder("Same").build())
