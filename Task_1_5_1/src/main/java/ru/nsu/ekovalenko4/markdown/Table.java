@@ -19,13 +19,11 @@ public final class Table extends Element {
     private final List<List<Text>> rows;
     private final int rowLimit;
 
-    private Table(Builder builder) {
-        this.header = List.copyOf(builder.header);
-        this.alignments = List.copyOf(builder.alignments);
-        this.rows = builder.rows.stream()
-                .map(List::copyOf)
-                .toList();
-        this.rowLimit = builder.rowLimit;
+    private Table(List<Text> header, List<Integer> alignments, List<List<Text>> rows, int rowLimit) {
+        this.header = List.copyOf(header);
+        this.alignments = List.copyOf(alignments);
+        this.rows = List.copyOf(rows.stream().map(List::copyOf).toList());
+        this.rowLimit = rowLimit;
     }
 
     @Override
@@ -167,7 +165,7 @@ public final class Table extends Element {
 
         public Table build() {
             validate();
-            return new Table(this);
+            return new Table(header, alignments, rows, rowLimit);
         }
     }
 }

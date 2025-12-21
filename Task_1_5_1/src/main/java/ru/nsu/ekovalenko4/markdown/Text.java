@@ -40,9 +40,9 @@ public final class Text extends Element {
     private final String content;
     private final EnumSet<Style> styles;
 
-    private Text(Builder builder) {
-        this.content = builder.content;
-        this.styles = EnumSet.copyOf(builder.styles);
+    private Text(String content, EnumSet<Style> styles) {
+        this.content = content;
+        this.styles = EnumSet.copyOf(styles);
     }
 
     @Override
@@ -126,7 +126,7 @@ public final class Text extends Element {
          */
         public Text build() {
             check();
-            return new Text(this);
+            return new Text(content, styles);
         }
     }
 }
