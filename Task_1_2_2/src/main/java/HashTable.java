@@ -98,7 +98,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
     /**
      * Returns the value associated with the key.
      */
-    public V get(K key) {
+    public V get(Object key) {
         int index = hash(key);
         Entry<K, V> node = table[index];
         for (Entry<K, V> n = node; n != null; n = n.next) {
@@ -177,7 +177,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
             return false;
         }
 
-        HashTable<K, V> other = (HashTable<K, V>) o;
+        HashTable<?, ?> other = (HashTable<?, ?>) o;
         if (size != other.size) {
             return false;
         }

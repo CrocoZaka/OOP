@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -166,12 +167,50 @@ class HashTableTest {
     }
 
     @Test
+    void testForEachLoopIteration() {
+        int count = 0;
+        boolean hasA = false;
+        boolean hasB = false;
+        boolean hasC = false;
+
+        for (HashTable.Entry<String, Integer> entry : table) {
+            assertNotNull(entry);
+            assertNotNull(entry.key);
+            assertNotNull(entry.value);
+
+            switch (entry.key) {
+                case "A" -> {
+                    assertEquals(1, entry.value);
+                    hasA = true;
+                }
+                case "B" -> {
+                    assertEquals(2, entry.value);
+                    hasB = true;
+                }
+                case "C" -> {
+                    assertEquals(3, entry.value);
+                    hasC = true;
+                }
+                default -> fail("Unexpected key: " + entry.key);
+            }
+            count++;
+        }
+
+        assertEquals(3, count);
+        assertTrue(hasA);
+        assertTrue(hasB);
+        assertTrue(hasC);
+    }
+
+
+    @Test
     void testEqualsAndHashTableIndependence() {
         HashTable<String, Integer> other = new HashTable<>();
         other.put("A", 1);
         other.put("B", 2);
         other.put("C", 3);
         assertEquals(table, other);
+        assertEquals(table.hashCode(), other.hashCode());
         assertEquals(table, table);
 
         other.update("B", 99);
