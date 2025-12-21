@@ -19,7 +19,8 @@ public final class Table extends Element {
     private final List<List<Text>> rows;
     private final int rowLimit;
 
-    private Table(List<Text> header, List<Integer> alignments, List<List<Text>> rows, int rowLimit) {
+    private Table(List<Text> header, List<Integer> alignments, List<List<Text>> rows,
+                  int rowLimit) {
         this.header = List.copyOf(header);
         this.alignments = List.copyOf(alignments);
         this.rows = List.copyOf(rows.stream().map(List::copyOf).toList());
