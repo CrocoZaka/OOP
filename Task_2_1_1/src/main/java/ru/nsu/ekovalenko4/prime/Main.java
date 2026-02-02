@@ -1,9 +1,13 @@
 package ru.nsu.ekovalenko4.prime;
 
-import java.util.Random;
-
+/**
+ * Main class for computation time demonstration purpose.
+ */
 public class Main {
 
+    /**
+     * Main method for computation time demonstration purpose.
+     */
     public static void main(String[] args) throws Exception {
 
         int[] data = new int[50000];
@@ -11,7 +15,8 @@ public class Main {
             data[i] = 1000_000_007;
         }
 
-        long start, end;
+        long start;
+        long end;
         boolean ans;
 
         start = System.nanoTime();
@@ -23,8 +28,8 @@ public class Main {
             start = System.nanoTime();
             ans = ThreadCheck.hasNonPrime(data, threads);
             end = System.nanoTime();
-            System.out.println("Threads (" + threads + "): " + ans + ", " + (end - start) / 1e6 +
-                " ms");
+            System.out.println("Threads (" + threads + "): " + ans + ", " + (end - start) / 1e6
+                    + " ms");
         }
 
         start = System.nanoTime();

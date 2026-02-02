@@ -1,6 +1,12 @@
 package ru.nsu.ekovalenko4.prime;
 
+/**
+ * Utility class providing prime number check method.
+ */
 public class IsPrime {
+    /**
+     * Checks whether the given integer is a prime number.
+     */
     public static boolean isPrime(int n) {
         if (n == 2) {
             return true;

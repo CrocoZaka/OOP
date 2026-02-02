@@ -2,9 +2,10 @@ package ru.nsu.ekovalenko4.prime;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
-class PrimeUtilsTest {
+class IsPrimeTest {
 
     @Test
     void testNegative() {
