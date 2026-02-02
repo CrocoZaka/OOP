@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.ekovalenko4.prime","l":"IsPrime"},{"p":"ru.nsu.ekovalenko4.prime","l":"Main"},{"p":"ru.nsu.ekovalenko4.prime","l":"ParallelStreamCheck"},{"p":"ru.nsu.ekovalenko4.prime","l":"SequentialCheck"},{"p":"ru.nsu.ekovalenko4.prime","l":"ThreadCheck"}];updateSearchResults();
